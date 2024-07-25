@@ -6,13 +6,16 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "clean:dist": "rimraf dist",
+    "build": "tsc",
+    "start": "node dist/2-fs-async.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.14.12",
+    "rimraf": "^6.0.1",
     "typescript": "^5.5.4"
   }
 }
