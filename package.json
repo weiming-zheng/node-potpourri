@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean:dist": "rimraf dist",
     "build": "tsc",
-    "start": "node dist/2-fs-async.js"
+    "start": "node dist/fs-async.js"
   },
   "keywords": [],
   "author": "",
