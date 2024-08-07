@@ -1,0 +1,38 @@
+POST http://localhost:4424/login
+Content-Type: application/json
+
+{
+    "user" : 
+    {
+        "id" : 1,
+        "name" : "john"
+    }
+}
+
+###
+POST http://localhost:4424/token 
+Content-Type: application/json
+
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImpvaG4iLCJpYXQiOjE3MjMwNTI5NDR9.XAy4tbzrcg3PTQ55V8Co8dFudWYXY6KCcNOUrQesmOU",
+    "user" : 
+    {
+        "id" : 1,
+        "name" : "john"
+    }
+}
+###
+DELETE http://localhost:4424/logout
+Content-Type: application/json
+
+{
+    "user" : 
+    {
+        "id" : 1,
+        "name" : "john"
+    }
+}
+
+###
+GET http://localhost:8848/api/people 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoiam9obiIsImlhdCI6MTcyMzA1Mjk0NH0sImlhdCI6MTcyMzA1MzIzMCwiZXhwIjoxNzIzMDU0MTMwfQ.cB3OLyOyFTInfwwHdaXy9JnNMG_td8OpASQ6xLHN2wo
