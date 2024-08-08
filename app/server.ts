@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: false }))
 // parse json
 app.use(express.json())
 
+import task from './routes/task.js';
+app.use('/api/v1/tasks', task);
+
 app.all('*', (req, res) => {
     res.status(404).send('resource not found')
 });
