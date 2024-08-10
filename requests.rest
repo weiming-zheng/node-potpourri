@@ -1,0 +1,9 @@
+POST http://localhost:8848/api/v1/tasks/
+Content-Type: application/json
+
+{
+    "name" : "clean the floor"
+}
+
+###
+GET http://localhost:8848/api/v1/tasks/66b65c42f8e80b075223d9ff
