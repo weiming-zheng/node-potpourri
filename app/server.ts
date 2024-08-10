@@ -1,5 +1,4 @@
 import 'dotenv/config.js';
-const port = process.env.SERVER_PORT;
 
 import express from 'express';
 const app = express();
@@ -12,10 +11,26 @@ app.use(express.urlencoded({ extended: false }))
 // parse json
 app.use(express.json())
 
-app.all('*', (req, res) => {
-    res.status(404).send('resource not found')
-});
+import productsRouter from './routes/product.js'
+app.use('/api/v1/products', productsRouter)
 
-app.listen(port, () => {
-    console.log(`Server is listening on port ${port} ... `);
-});
+import notFound from './middlewares/not-found.js';
+app.use(notFound)
+import errorHandlerMiddleware from './middlewares/error-handler.js';
+app.use(errorHandlerMiddleware)
+
+import connectDB from './db/connet.js';
+const port = process.env.SERVER_PORT || 8848
+
+async function start() {
+    try {
+        await connectDB()
+        app.listen(port, () => {
+            console.log(`Server is listening on port ${port} ... `);
+        });
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+start()
